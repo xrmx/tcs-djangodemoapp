@@ -1,0 +1,17 @@
+{% extends 'todo/base.html' %}
+
+{% block title %}
+Your todos
+{% endblock %}
+
+{% block content %}
+<p>
+Add new <a href="{% url 'todo:new_todo' %}"></a>
+</p>
+
+<ul>
+{% for todo in todos %}
+    <li><a href="{% url 'todo:detail' todo.pk %}">{{ todo }}</a></li>
+{% endfor %}
+</ul>
+{% endblock %}
